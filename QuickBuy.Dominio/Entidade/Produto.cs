@@ -13,7 +13,7 @@
                 AdicionarCritica("Critca - Nome do produto não foi informado");
 
             if (string.IsNullOrEmpty(Descricao))
-                AdicionarCritica("Critica- Descricao não foi informado")
+                AdicionarCritica("Critica- Descricao não foi informado");
         }
     }
 }
