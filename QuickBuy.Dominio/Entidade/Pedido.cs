@@ -2,10 +2,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuickBuy.Dominio.Entidade
 {
-    public class Pedido
+    public class Pedido : Entidade
     {
         public int Id { get; set; }
         public DateTime Data { get; set; }
@@ -24,5 +25,17 @@ namespace QuickBuy.Dominio.Entidade
         ///  Pedido teve ter pelo mneos um intem de pedido ou muitos itens de pedidos
         /// </summary>
         public ICollection<ItemPedido> ItensPedido { get; set; }
+
+        public override void Validate()
+        {
+            LimparMensagensValidacao();
+
+            if (!ItensPedido.Any())
+                AdicionarCritica("Critica - Pedido não pode sem intem de pedido");
+                
+
+            if (string.IsNullOrEmpty(CEP))
+                AdicionarCritica("Critica - CEP deve esta preenchido");
+        }
     }
 }
