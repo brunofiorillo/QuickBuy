@@ -32,10 +32,18 @@ namespace QuickBuy.Dominio.Entidade
 
             if (!ItensPedido.Any())
                 AdicionarCritica("Critica - Pedido não pode sem intem de pedido");
-                
-
+            
+            ///Se não existe nenhuma informaçao do produto, ou seja nem um intem em intens de produto(ItensPedido), apresentar a critica.
+            ///
+            
+            
+              
             if (string.IsNullOrEmpty(CEP))
                 AdicionarCritica("Critica - CEP deve esta preenchido");
+
+            ///
+
         }
+        
     }
 }
