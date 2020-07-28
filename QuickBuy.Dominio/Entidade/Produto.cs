@@ -6,6 +6,7 @@
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public decimal Preco { get; set; }
+        public object FormaPagamento { get; set; }
 
         public override void Validate()
         {

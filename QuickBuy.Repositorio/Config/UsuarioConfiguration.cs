@@ -32,10 +32,12 @@ namespace QuickBuy.Repositorio.Config
                 .IsRequired()
                 .HasMaxLength(50);
 
-           // builder .Property(u => u.Pedidos)
+            builder
+                .HasMany(u => u.Pedidos) //usuario tem mts pedidos
+                .WithOne(p => p.Usuario); //pedidos so tem 1 usuario
+                                   
       
-                
-
+    
                 
 
 
