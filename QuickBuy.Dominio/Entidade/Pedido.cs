@@ -1,6 +1,5 @@
 ﻿using QuickBuy.Dominio.ObjetoDeValor;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,12 +19,12 @@ namespace QuickBuy.Dominio.Entidade
         public int NumeroEndereco { get; set; }
 
         public int FormaPagamentoId { get; set; }
-        public FormaPagamento FormaPagamento { get; set; }
+        public virtual FormaPagamento FormaPagamento { get; set; }
 
         /// <summary>
         ///  Pedido teve ter pelo mneos um intem de pedido ou muitos itens de pedidos
         /// </summary>
-        public ICollection<ItemPedido> ItensPedido { get; set; }
+        public virtual ICollection<ItemPedido> ItensPedido { get; set; }
 
         public override void Validate()
         {
