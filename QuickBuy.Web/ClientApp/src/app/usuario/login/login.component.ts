@@ -7,6 +7,12 @@ import { Component } from "@angular/core";
   styleUrls: ["./login.component.css"] 
 })
 export class LoginComponent {
+
   public email = "bruno@teste.com";
+
+
+  entrar() {
+    alert('entrar no sistema');
+  }
 
 }

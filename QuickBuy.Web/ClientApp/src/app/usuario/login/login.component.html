@@ -1,15 +1,23 @@
 <div class="text-center">
   <form class="form-signin">
-    <h1 class="h4 mb-2 login" >Login do Cliente</h1>
-    
+
+
+
+    <h1 class="h4 mb-2 login">Login do Cliente</h1>
+
 
     <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" id="inputEmail" name="email" placeholder="Informe o seu Email" class="form-control mb-2" />
-    
+    <input type="email" id="inputEmail" name="email" placeholder="Informe o seu Email" class="form-control mb-2" value="{{email}}" />
+
     <label for="inputSenha" class="sr-only">Senha</label>
     <input type="password" id="inputSenha" name="senha" placeholder="Senha" class="form-control mb-2" />
-    
-    <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+
+    <button class="btn btn-primary btn-block mb-3 " type="submit" (click)="entrar()" >Entrar</button>
+
+  
+    <img src="assets/img/pilintra.jpg"/>
+   
+
 
   </form>
 </div>
