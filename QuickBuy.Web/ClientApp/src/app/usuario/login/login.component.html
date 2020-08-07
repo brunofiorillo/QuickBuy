@@ -12,14 +12,15 @@
            placeholder="Informe o seu Email"
            class="form-control mb-2"
            [(ngModel)]="usuario.email"
-           #email="ngModel" 
+           #email="ngModel"
+           email
            required />
     <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
         <div *ngIf="email.errors.required">
             Email é de preenchimento obrigatório !
         </div>
         <div *ngIf="email.errors.email">
-            Email não está no formato correto !
+            Email está no formado inválido !
         </div>
     </div>
       
