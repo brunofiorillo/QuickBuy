@@ -1,5 +1,6 @@
-import { Component } from "@angular/core"; 
+import { Component, OnInit } from "@angular/core"; 
 import { Usuario } from "../../modelo/usuario";
+import { Router, ActivatedRoute } from "@angular/router";
 
 
 @Component({
@@ -7,28 +8,27 @@ import { Usuario } from "../../modelo/usuario";
   templateUrl: './login.component.html',
   styleUrls: ["./login.component.css"] 
 })
-export class LoginComponent {
-
+export class LoginComponent implements OnInit
+{
     public usuario;
-    public usuarioAutenticado: boolean;
-    public email
-  
+    public returnUrl: string;
 
- constructor()
-    {
-        this.usuario = new Usuario();
+    constructor(private router: Router, private activatedRouter: ActivatedRoute)
+    {           
     }
-
+        ngOnInit(): void
+    {
+          this.returnUrl = this.activatedRouter.snapshot.queryParams['returnUrl'];
+          this.usuario = new Usuario();
+    }
 
 entrar()
   {
-    if (this.usuario.email == "bruno@teste.com" && this.usuario.senha == "123")
-      {
-        this.usuarioAutenticado = true;
-      }
+      if (this.usuario.email == "bruno@teste.com" && this.usuario.senha == "123")
+    {
+      sessionStorage.setItem("usuario-autenticado", "1");
+      this.router.navigate([this.returnUrl]);
+    }
   }
-
- 
-
 
 }
