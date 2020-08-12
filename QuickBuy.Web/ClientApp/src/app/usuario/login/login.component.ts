@@ -5,38 +5,55 @@ import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
 
 
 @Component({
-  selector: "app-login", 
+  selector: "app-login",
   templateUrl: './login.component.html',
-  styleUrls: ["./login.component.css"] 
+  styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-    public usuario;
-    public returnUrl: string;
+  public usuario;
+  public returnUrl: string;
+  public mensagem: string;
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute,
-              private usuarioServico: UsuarioServico) {           
-    }
-        ngOnInit(): void{
-          this.returnUrl = this.activatedRouter.snapshot.queryParams['returnUrl'];
-          this.usuario = new Usuario(); 
-                        }
+    private usuarioServico: UsuarioServico) {
+  }
+  ngOnInit(): void {
+    this.returnUrl = this.activatedRouter.snapshot.queryParams['returnUrl'];
+    this.usuario = new Usuario();
+  }
 
-entrar(){
+  entrar() {
 
-  this.usuarioServico.verificarUsuario(this.usuario)
-    .subscribe(
-      data => {
+    this.usuarioServico.verificarUsuario(this.usuario)
+      .subscribe(
+        data => {
+          //essa linha será executada no caso de retornos sem erros
 
-      },
-      err => {
-      
+          var usuarioRetorno: Usuario;
+          usuarioRetorno = data;
+          sessionStorage.setItem("usuario-autenticado", "1");
+          sessionStorage.setItem("email-usuario", usuarioRetorno.email);
+
+          if (this.returnUrl == null) {
+            this.router.navigate(['/']);
+          } else {
+            this.router.navigate([this.returnUrl]);
+          } 
+        },
+        err => {
+          console.log(err.error);
+          this.mensagem = err.error;
+          
+        }
+      );
+  }
 }
-    );
 
-      //if (this.usuario.email == "bruno@teste.com" && this.usuario.senha == "123") {
+
+      //if (this.usuario.email == "bruno@teste.com" &&  this.usuario.senha == "123") {
       //sessionStorage.setItem("usuario-autenticado", "1");
       //this.router.navigate([this.returnUrl]);
-    }
-        }
+    
+        
 
-}
+
