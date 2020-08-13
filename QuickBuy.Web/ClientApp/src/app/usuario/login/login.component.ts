@@ -26,14 +26,14 @@ export class LoginComponent implements OnInit {
 
     this.usuarioServico.verificarUsuario(this.usuario)
       .subscribe(
-        data => {
-          //essa linha será executada no caso de retornos sem erros
+        usuario_json => {
+          //essa linha será executada no caso de retornos sem erros        
+         
 
-          var usuarioRetorno: Usuario;
-          usuarioRetorno = data;
-          sessionStorage.setItem("usuario-autenticado", "1");
-          sessionStorage.setItem("email-usuario", usuarioRetorno.email);
-
+          this.usuarioServico.usuario = usuario_json;
+          //vai ser excutado o set la do serviço usuario, td vez q faz uma atribuição
+          
+           
           if (this.returnUrl == null) {
             this.router.navigate(['/']);
           } else {
