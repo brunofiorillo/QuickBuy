@@ -34,9 +34,9 @@ namespace QuickBuy.Web.Controllers
             {
                 var usuarioRetorno = _usuarioRepositorio.ObterPorId(1);
                 if (usuarioRetorno != null)
-                {
+                
                     return Ok(usuarioRetorno);
-                }
+                
                 
                     
                 

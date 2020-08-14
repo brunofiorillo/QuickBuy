@@ -12,6 +12,11 @@ namespace QuickBuy.Repositorio.Repositorios
         public UsuarioRepositorio(QuickBuyContexto quickBuyContexto) : base(quickBuyContexto)
         {
         }
+
+        public Usuario obter(string email, string senha)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
  
