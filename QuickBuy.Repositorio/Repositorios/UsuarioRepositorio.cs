@@ -1,6 +1,7 @@
 ﻿using QuickBuy.Dominio.Contratos;
 using QuickBuy.Dominio.Entidade;
 using QuickBuy.Repositorio.Contexto;
+using System.Linq;
 
 namespace QuickBuy.Repositorio.Repositorios
 {
@@ -13,10 +14,10 @@ namespace QuickBuy.Repositorio.Repositorios
         {
         }
 
-        public Usuario obter(string email, string senha)
+        public Usuario Obter(string email, string senha)
         {
-            throw new System.NotImplementedException();
+            return QuickBuyContexto.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
     }
 }
- 
+  

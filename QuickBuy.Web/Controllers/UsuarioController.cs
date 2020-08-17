@@ -32,7 +32,7 @@ namespace QuickBuy.Web.Controllers
         {
             try
             {
-                var usuarioRetorno = _usuarioRepositorio.ObterPorId(1);
+                var usuarioRetorno = _usuarioRepositorio.Obter(usuario.Email, usuario.Senha);
                 if (usuarioRetorno != null)
                 
                     return Ok(usuarioRetorno);
