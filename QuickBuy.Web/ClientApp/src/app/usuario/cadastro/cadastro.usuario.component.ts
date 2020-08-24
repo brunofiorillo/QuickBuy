@@ -19,5 +19,13 @@ export class CadastroUsuarioComponent implements OnInit {
     this.usuario = new Usuario;
   }
 
+  public cadastrar() {
+   
+    //this.usuarioServico.cadastrarUsuario(this.usuario)
+     //.subscribe(
+      //  usuarioJson => { },
+      //  err =>{}
+     // );
+  }
 
 }
