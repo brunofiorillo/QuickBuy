@@ -8,7 +8,12 @@
        [ngClass]=""
        [(ngModel)]="produto.nome"
        #nome="ngModel"
-       required /> 
+       required />
+<div class="invalid-feedback mb-2" *ngIf="nome.invalid && (nome.dirty || nome.touched) ">
+  <div *ngIf="nome.errors.required">
+    Nome do produto é de preenchimento obrigatorio!
+  </div>
+</div>
 
 <label for="inputDescricao" class="sr-only">Descrição</label>
 <input type="text" id="inputDescricao"
@@ -19,6 +24,12 @@
        [(ngModel)]="produto.descricao"
        #descricao="ngModel"
        required />
+<div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched) ">
+  <div *ngIf="descricao.errors.required">
+    Descrição é de preenchimento obrigatorio!
+  </div>
+</div>
+
 
 <label for="inputPreco" class="sr-only">Preço</label>
 <input type="number" id="inputPreco"
@@ -27,8 +38,15 @@
        class="form-control mb-2 col-md-2"
        [ngClass]=""
        [(ngModel)]="produto.preco"
-       #produto="ngModel"
+       #preco="ngModel"
        required />
+<div class="invalid-feedback mb-2" *ngIf="preco.invalid && (preco.dirty || preco.touched) ">
+  <div *ngIf="preco.errors.required">
+    Preço do produto é de preenchimento obrigatorio!
+  </div>
+
+</div>
+
 
 <div class="input-group">
   <div class="custom-file col-md-4">
@@ -36,6 +54,6 @@
     <label for="inputFile" class="custom-file-label" >Escolher uma Foto</label>
   </div>
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Enviar</button>
+    <button class="btn btn-outline-secondary" type="button" (click)="cadastrar">Enviar</button>
   </div>
 </div> 
