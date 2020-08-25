@@ -104,6 +104,9 @@
     <div class="alert alert-danger" *ngIf="mensagem">
       {{mensagem}}
     </div>
+    <div class="alert alert-success" *ngIf="usuarioCadastrado">
+      Usuario cadastrado com sucesso <a class="alert-link" [routerLink]='["/entrar"]'>Voltar</a>
+    </div> 
 
     <img src="assets/img/pilintra.jpg" />
 
