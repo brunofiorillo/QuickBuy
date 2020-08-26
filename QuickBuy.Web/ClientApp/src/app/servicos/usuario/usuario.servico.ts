@@ -61,7 +61,7 @@ export class UsuarioServico {
   public cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
  
     return this.http.post<Usuario>(this.baseUrl + "api/usuario", JSON.stringify(usuario), { headers: this.headers });
-
+     //como n foi espicificado como acima api/usuario/verificarusuario ele vai no usuario controller e vai pegar o post 
 
   }
 
