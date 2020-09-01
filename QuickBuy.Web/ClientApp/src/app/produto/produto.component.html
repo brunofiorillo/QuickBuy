@@ -50,10 +50,10 @@
 
 <div class="input-group">
   <div class="custom-file col-md-4">
-    <input type="file" class="custom-file-input cp" id="inputFile" >
-    <label for="inputFile" class="custom-file-label" >Escolher uma Foto</label>
+    <input type="file" class="custom-file-input cp" id="inputFile" (change)="inputChange($event.target.files)">
+    <label for="inputFile" class="custom-file-label" >Escolha uma Foto</label>
   </div>
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" (click)="cadastrar">Enviar</button>
+    <button class="btn btn-outline-secondary" type="button" (click)="cadastrar">Cadastrar</button>
   </div>
 </div> 
