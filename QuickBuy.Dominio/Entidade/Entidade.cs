@@ -35,8 +35,12 @@ namespace QuickBuy.Dominio.Entidade
         /// USO PARA ADICIONAR CRITICA NOS METODOS VALIDATE DAS CLASSES COMO USUARIO, PEDIDO, PRODUTO E ETC.
         /// </summary>
 
+        public string ObterMensagemValidacao()
+        {
+            return string.Join(". ", mensagemValidacao); // se for adicionado mais de uma mensagem dentro dessa lista, ele vai criar uma unica string
+        }                                               //separando por .
         public abstract void Validate();
-        protected bool EhValido
+        public bool EhValido
         {
             get { return !mensagemValidacao.Any(); }
             ///

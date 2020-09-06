@@ -52,6 +52,12 @@ namespace QuickBuy.Web.Controllers
         { 
             try 
             {
+                produto.Validate();
+                if (!produto.EhValido) 
+                {
+                    return BadRequest(produto.ObterMensagemValidacao());
+                }
+
                 _produtoRepositorio.Adicionar(produto);     //adicionando no banco de dados
                 return Created("api/produto", produto);     //significa q foi adicionado sem erro e devolve um created q  devolve a api e o produto criado
 
@@ -77,10 +83,10 @@ namespace QuickBuy.Web.Controllers
                 {
                     formFile.CopyTo(streamArquivo);
                 }
-                return Ok("Arquivo enviado com sucesso");
+                return Json(novoNomeArquivo);
             }
             catch (Exception ex) 
-            {
+            { 
                 return BadRequest(ex.ToString());
             }
         }

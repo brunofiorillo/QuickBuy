@@ -25,7 +25,7 @@ namespace QuickBuy.Repositorio.Config
                 .HasColumnType("decimal(19,4)")
                 .IsRequired();
 
-
+         
 
         }
     }

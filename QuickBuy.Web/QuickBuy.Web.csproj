@@ -29,6 +29,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\arquivos\15194446_1.jpg" />
+    <Content Remove="wwwroot\arquivos\15194446_1_202094184918.jpg" />
+    <Content Remove="wwwroot\arquivos\15194446_1_202096131118.jpg" />
+    <Content Remove="wwwroot\arquivos\15194446_1_202096131314.jpg" />
+    <Content Remove="wwwroot\arquivos\15194446_1_202096131552.jpg" />
+    <Content Remove="wwwroot\arquivos\15194446_1_20209613195.jpg" />
+    <Content Remove="wwwroot\arquivos\exu_202096131043.png" />
+    <Content Remove="wwwroot\arquivos\exu_202096132611.png" />
+    <Content Remove="wwwroot\arquivos\samsung_bo_20209694754.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
     <None Remove="ClientApp\src\app\modelo\produto.ts" />
     <None Remove="ClientApp\src\app\modelo\usuario.ts" />

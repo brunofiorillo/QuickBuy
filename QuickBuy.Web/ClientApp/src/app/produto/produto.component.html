@@ -5,7 +5,10 @@
        name="nome"
        placeholder="Nome do Produto"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+           'is-invalid': nome.invalid && (nome.dirty || nome.touched),
+           'is-valid':nome.valid && (nome.dirty || nome.touched)
+                  }"
        [(ngModel)]="produto.nome"
        #nome="ngModel"
        required />
@@ -20,7 +23,10 @@
        name="descricaoProduto"
        placeholder="Descrição do Produto"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+           'is-invalid': descricao.invalid && (descricao.dirty || descricao.touched),
+           'is-valid':descricao.valid && (descricao.dirty || descricao.touched)
+                  }"
        [(ngModel)]="produto.descricao"
        #descricao="ngModel"
        required />
@@ -36,7 +42,10 @@
        name="precoProduto"
        placeholder="Preço do Produto"
        class="form-control mb-2 col-md-2"
-       [ngClass]=""
+       [ngClass]="{
+           'is-invalid': preco.invalid && (preco.dirty || preco.touched),
+           'is-valid':preco.valid && (preco.dirty || preco.touched)
+                  }"
        [(ngModel)]="produto.preco"
        #preco="ngModel"
        required />
@@ -48,12 +57,19 @@
 </div>
 
 
-<div class="input-group">
+<div class="input-group mb-2">
   <div class="custom-file col-md-4">
     <input type="file" class="custom-file-input cp" id="inputFile" (change)="inputChange($event.target.files)">
-    <label for="inputFile" class="custom-file-label" >Escolha uma Foto</label>
+    <label for="inputFile" class="custom-file-label">Escolha uma Foto</label>
   </div>
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" (click)="cadastrar">Cadastrar</button>
-  </div>
-</div> 
+</div>
+
+  <button class="btn btn-outline-primary mb-2" type="button" (click)="cadastrar()" [disabled]="ativar_spinner">
+    <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+    Cadastrar
+  </button>
+
+<div class="alert alert-danger col-md-4" *ngIf="mensagem">
+  {{mensagem}}
+</div>
+
