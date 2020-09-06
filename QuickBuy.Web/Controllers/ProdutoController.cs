@@ -29,19 +29,9 @@ namespace QuickBuy.Web.Controllers
         {
             try
             {
-                return Ok(_produtoRepositorio.ObterTodos()); //defini oq se considera ser um retorno ok(uma chamada bem sucedida)
-                                                             //devolve um objeto cadastrado na base, quando a chamada é bem sucedida
-
-
-
-                //if(condicao == false) 
-                //{
-                //    return BadRequest("");
-                //} isso e pra quando n for sucedida
-
-            }
-
-            catch ( Exception ex) //caso der algum erro nesse caminho de retorno seja no mapeamento, banco de dados, ou na voltar, ele cai em excpetion
+                return Json(_produtoRepositorio.ObterTodos()); //defini oq se considera ser um retorno ok(uma chamada bem sucedida)
+                                                               //devolve um objeto cadastrado na base, quando a chamada é bem sucedida
+                }catch(Exception ex) //caso der algum erro nesse caminho de retorno seja no mapeamento, banco de dados, ou na voltar, ele cai em excpetion
             {
                 return BadRequest(ex.ToString());  //devolve um BadRequest avisando q aconteceu um problema, o ToString informa td q aconteceu.
             }   

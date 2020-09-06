@@ -13,6 +13,7 @@ import { GuardaRotas } from './autorizacao/guarda.rotas';
 import { UsuarioServico } from './servicos/usuario/usuario.servico';
 import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
 import { ProdutoServico } from './servicos/produto/produto.servico';
+import { PesquisaProdutoComponent } from './produto/Pesquisa/pesquisa.produto.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
     HomeComponent,
     ProdutoComponent,
     LoginComponent,
-    CadastroUsuarioComponent
+    CadastroUsuarioComponent,
+    PesquisaProdutoComponent
        
   ],
   imports: [
@@ -33,7 +35,8 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'produto', component: ProdutoComponent},
       { path: 'entrar', component: LoginComponent },
-      { path: "novo-usuario", component: CadastroUsuarioComponent } 
+      { path: "novo-usuario", component: CadastroUsuarioComponent },
+      { path: "pesquisar-produto", component: PesquisaProdutoComponent }
 
     ])
   ],
