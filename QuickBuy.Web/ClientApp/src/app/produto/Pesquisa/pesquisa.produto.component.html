@@ -1,7 +1,7 @@
 <h1 class="h4 titulo">Pesquisa de Produtos</h1>
 <p *ngIf="!produtos">Carregando Produtos...</p>
 
-<button class="btn btn-primary mb-2" (click)="adicionarProduto0">Adicionar Produto</button>
+<button class="btn btn-primary mb-2" (click)="adicionarProduto()">Adicionar Produto</button>
 
 <table class="table table-hover" *ngIf="produtos"> 
   <thead>
@@ -21,8 +21,8 @@
       <td style="width:50%">{{p.descricao}}</td>
       <td style="width:10%">R${{p.preco}}</td>
       <td> <img src="../../../../../arquivos/{{p.nomeArquivo}}" style="width:40%;height:30%"/>  </td>
-      <td><a href="#">Editar</a></td>
-      <td><a href="#">Deletar</a></td>
+      <td><button class="btn btn-success btn-sm" (click)="editarProduto(p)">Editar</button></td>
+      <td><button class="btn btn-danger btn-sm " (click)="deletarProduto(p)">Editar</button></td>
     </tr>
   </tbody>
 </table>
