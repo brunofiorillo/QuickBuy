@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let p of produtos" >
+      <div class="card" >
+        <img src="../../../../../arquivos/{{p.nomeArquivo}}" style="width:40%;height:30%" />
+        <div class="card-body">
+          <h5 class="card-title">{{p.nome}}</h5>
+          <h5 class="card-text">{{p.descricao}}</h5>
+          <h5 class="h5">R$ {{p.preco}} </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -64,10 +64,14 @@
   </div>
 </div>
 
-  <button class="btn btn-outline-primary mb-2" type="button" (click)="cadastrar()" [disabled]="ativar_spinner">
+<form class="form-inline">
+  <button class="btn btn-outline-primary" style="margin-right:2px" type="button" (click)="cadastrar()" [disabled]="ativar_spinner">
     <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
     Cadastrar
   </button>
+
+  <button class="btn btn-secondary" [routerLink]="['/pesquisar-produto']">Cancelar</button>
+</form>
 
 <div class="alert alert-danger col-md-4" *ngIf="mensagem">
   {{mensagem}}

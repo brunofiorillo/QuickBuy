@@ -47,10 +47,16 @@ namespace QuickBuy.Web.Controllers
                 {
                     return BadRequest(produto.ObterMensagemValidacao());
                 }
-
-                _produtoRepositorio.Adicionar(produto);     //adicionando no banco de dados
-                return Created("api/produto", produto);     //significa q foi adicionado sem erro e devolve um created q  devolve a api e o produto criado
-
+                if (produto.Id > 0) //aqui o produto ja é cadastrado
+                {
+                    _produtoRepositorio.Atualizar(produto);
+                }
+                else
+                {
+                    _produtoRepositorio.Adicionar(produto);     //adicionando no banco de dados
+                }
+                    return Created("api/produto", produto);     //significa q foi adicionado sem erro e devolve um created q  devolve a api e o produto criado
+                
             }
             catch(Exception ex)
             {
