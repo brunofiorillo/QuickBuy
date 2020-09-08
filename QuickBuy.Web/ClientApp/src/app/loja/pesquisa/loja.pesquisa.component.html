@@ -1,14 +1,17 @@
-<div class="container">
+<div *ngIf="!produtos">Carregando...</div>
+
+<div class="container" *ngIf="produtos">
   <div class="row">
-    <div class="col-md-4" *ngFor="let p of produtos" >
+    <div class="col-md-4 mb-4" *ngFor="let p of produtos" >
+      <a (click)="abrirProduto(p)" style="cursor:pointer">
       <div class="card" >
-        <img src="../../../../../arquivos/{{p.nomeArquivo}}" style="width:40%;height:30%" />
+        <img class="card-top"src="../../../../../arquivos/{{p.nomeArquivo}}" style="width:200px;height:200px" />
         <div class="card-body">
-          <h5 class="card-title">{{p.nome}}</h5>
-          <h5 class="card-text">{{p.descricao}}</h5>
+          <div class="card-text">{{p.descricao | truncate: 50}}</div>
           <h5 class="h5">R$ {{p.preco}} </h5>
         </div>
       </div>
+        </a>
     </div>
   </div>
 </div>
