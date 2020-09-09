@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿ using Microsoft.AspNetCore.Mvc;
 using QuickBuy.Dominio.Contratos;
 using QuickBuy.Dominio.Entidade;
 using System;
@@ -57,9 +57,10 @@ namespace QuickBuy.Web.Controllers
             try
             {
                 var usuarioCadastrado = _usuarioRepositorio.Obter(usuario.Email);
-                if (usuarioCadastrado != null)
+                if (usuarioCadastrado != null)         
                     return BadRequest("Usuario já cadastrado");
 
+                //usuario.EhAdministrador = true;
                 _usuarioRepositorio.Adicionar(usuario);
                 return Ok();
                 
