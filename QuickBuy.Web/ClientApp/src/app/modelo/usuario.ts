@@ -3,5 +3,6 @@ export class Usuario {
   email: string;
   senha: string;
   nome: string;
-  sobreNome: string;  
+  sobreNome: string;
+  ehAdministrador: boolean;
 }

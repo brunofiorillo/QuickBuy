@@ -36,5 +36,8 @@ export class NavMenuComponent {
     return this.usuarioServico.usuario;
     
   }
+  public usuario_administrador(): boolean {
+    return this.usuarioServico.usuario_administrador();
+  }
 
 }
