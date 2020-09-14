@@ -3,6 +3,9 @@ import { ProdutoServico } from "../../servicos/produto/produto.servico";
 import { Router } from "@angular/router";
 import { LojaCarrinhoCompras } from "../carrinho-compras/loja.carrinho.compras";
 import { Produto } from "../../modelo/produto";
+import { Pedido } from "../../modelo/pedido";
+import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
+import { ItemPedido } from "../../modelo/itemPedido";
 
 @Component({
   selector: "loja-efetivar",
@@ -46,7 +49,38 @@ export class LojaEfetivarComponent implements OnInit {
     this.total = this.produtos.reduce((acc, produto) => acc + produto.preco, 0);
   }
 
-  constructor(private produtoServico: ProdutoServico, router: Router) {
+  constructor(private produtoServico: ProdutoServico, router: Router, private usuarioServico: UsuarioServico) {
 
+  }
+
+  public efetivarCompra() {
+    let pedido = this.criarPedido();
+  }
+
+  public criarPedido(): Pedido {
+
+    let pedido = new Pedido();
+    pedido.usuarioId = this.usuarioServico.usuario.id;
+    pedido.cep = "36035250";
+    pedido.cidade = "Juiz de Fora";
+    pedido.dataPedido = new Date();
+    pedido.estado = "Minas Gerais";
+    pedido.dataPrevisaoEntrega = new Date();
+    pedido.formaPagamentoId = 1;
+    pedido.numeroEndereco = "235";
+
+    this.produtos = this.carrinhoCompras.obterProdutos();
+    for (let produto of this.produtos) {
+      let itemPedido = new ItemPedido();
+      itemPedido.produtoId = produto.id;
+    
+      if (!produto.quantidade)
+        produto.quantidade = 1;
+      itemPedido.quantidade = produto.quantidade;
+
+      pedido.itensPedido.push(itemPedido);
+    }
+
+    return pedido; 
   }
 }
