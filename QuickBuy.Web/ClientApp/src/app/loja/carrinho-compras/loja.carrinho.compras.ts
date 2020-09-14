@@ -2,6 +2,7 @@ import { Produto } from "../../modelo/produto";
 import { Local } from "protractor/built/driverProviders";
 
 export class LojaCarrinhoCompras {
+  
   public produtos: Produto[] = [];
 
   public adicionar(produto: Produto) {
@@ -21,7 +22,6 @@ export class LojaCarrinhoCompras {
     var produtoLocalStorage = localStorage.getItem("produtoLocalStorage");
     if (produtoLocalStorage) {
       return JSON.parse(produtoLocalStorage);
-
         return this.produtos;
     }
   }
@@ -42,5 +42,8 @@ export class LojaCarrinhoCompras {
   public temItensCarrinhoCompras(): boolean {
     var intens = this.obterProdutos();
     return (intens.length > 0);
+  }
+  public limparCarrinhoCompras() {
+    localStorage.setItem("produtoLocalStorage", "");
   }
 }
