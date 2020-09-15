@@ -30,7 +30,9 @@ namespace QuickBuy.Web
         //serviços ao aspnetcore
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                    .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
                 
             var connectionString = Configuration.GetConnectionString("QuickBuyDB");
